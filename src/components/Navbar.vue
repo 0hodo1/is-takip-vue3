@@ -9,9 +9,20 @@
         <router-link :to="{ name: 'home' }">Hodo İş Takip</router-link>
       </h1>
       <div class="links">
-        <button class="btn" @click="handleClick">Çıkış Yap</button>
-        <router-link class="btn" :to="{ name: 'Login' }">Giriş Yap</router-link>
-        <router-link class="btn" :to="{ name: 'Signup' }">Kayıt Ol</router-link>
+        <div v-if="user">
+          <router-link :to="{ name: 'AddWork' }" class="btn"
+            >İş Ekle</router-link
+          >
+          <button class="btn" @click="handleClick">Çıkış Yap</button>
+        </div>
+        <div v-else>
+          <router-link class="btn" :to="{ name: 'Login' }"
+            >Giriş Yap</router-link
+          >
+          <router-link class="btn" :to="{ name: 'Signup' }"
+            >Kayıt Ol</router-link
+          >
+        </div>
       </div>
     </nav>
   </div>
@@ -20,15 +31,19 @@
 <script>
 import useLogout from "@/composables/useLogout";
 import { useRouter } from "vue-router";
+import getUser from "@/composables/getUser";
+
 export default {
   setup() {
     const { logout } = useLogout();
     const router = useRouter();
+    const { user } = getUser();
+
     const handleClick = async () => {
       await logout();
       router.push({ name: "Login" });
     };
-    return { handleClick };
+    return { handleClick, user };
   },
 };
 </script>
