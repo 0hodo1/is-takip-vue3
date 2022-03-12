@@ -1,10 +1,10 @@
 import { ref } from "vue";
 import { firestoreRef } from "../firebase/config";
 
-const useDocument = (collection, id) => {
+const useDocument = (koleksiyon, id) => {
   const error = ref(null);
 
-  let documentRef = firestoreRef.collection(collection).doc(id);
+  let documentRef = firestoreRef.collection(koleksiyon).doc(id);
 
   const deleteDocument = async () => {
     error.value = null;
@@ -17,11 +17,11 @@ const useDocument = (collection, id) => {
     }
   };
 
-  const updateDocument = async (workStep) => {
+  const updateDocument = async (workStepi) => {
     error.value = null;
 
     try {
-      const res = await documentRef.update(workStep);
+      const res = await documentRef.update(workStepi);
       return res;
     } catch (error) {
       error.value = "Belge güncellenemedi";

@@ -10,7 +10,7 @@
           <p>Oluşturan: {{ work.username }}</p>
         </div>
         <div class="work-number">
-          <p>{{ work.workSteps.length }} tane yapılacak iş var.</p>
+          <p>{{ work.workSteps.length }} tane iş adımı bulunuyor</p>
         </div>
       </div>
     </router-link>

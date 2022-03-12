@@ -12,14 +12,14 @@
       <p class="description">{{ work.description }}</p>
     </div>
     <div class="work-list">
-      <h2>İş adımları</h2>
+      <h2>İş Adımları</h2>
       <AddWorkStep v-if="userWork" :work="work" />
       <div class="work-list">
         <div v-if="!work.workSteps.length">Henüz iş eklenmedi</div>
-        <div v-for="workStep in workSteps" :key="workStep.id">
+        <div v-for="workStep in work.workSteps" :key="workStep.id">
           <div class="single-work">
             <div class="details">
-              <h3>{{ workStep.workStep }}</h3>
+              <h3>{{ workStep.workStepi }}</h3>
               <button v-if="userWork" @click="handleClick(workStep.id)">
                 Sil
               </button>
@@ -48,7 +48,6 @@ export default {
   props: ["id"],
   setup(props) {
     const { errorDocument, document: work } = getDocument("works", props.id);
-
     const { user } = getUser();
     const userWork = computed(() => {
       return work.value && user.value && user.value.uid === work.value.userId;

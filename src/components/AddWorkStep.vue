@@ -3,7 +3,7 @@
     <button v-if="!formGoster" @click="formGoster = true">İş Adımı Ekle</button>
     <form v-if="formGoster" @sumbmit.prevent="handleSubmit">
       <h4>Yeni İş Adımı</h4>
-      <input type="text" placeholder="İş Adımı" required v-model="stepWork" />
+      <input type="text" placeholder="İş Adımı" required v-model="workStepi" />
       <button>Ekle</button>
     </form>
   </div>
@@ -14,29 +14,30 @@ import { ref } from "vue";
 import useDocument from "@/composables/useDocument";
 
 export default {
+  props: ["work"],
   setup(props) {
-    const workStep = ref("");
+    const workStepi = ref(null);
     const formGoster = ref(false);
 
     const { updateDocument } = useDocument("works", props.work.id);
 
     const handleSubmit = async () => {
-      const newWorkStep = {
-        workStep: workStep.value,
+      const newWorkStepi = {
+        workStepi: workStepi.value,
         id: Math.floor(Math.random() * 1000000),
       };
 
-      console.log([...props.work.workStep, newWorkStep]);
+      // console.log([...props.work.workStep, newWorkStepi]);
 
       const res = await updateDocument({
-        workSteps: [...props.work.workStep, newWorkStep],
+        workSteps: [...props.work.workSteps, newWorkStepi],
       });
 
-      workStep.value = null;
+      workStepi.value = null;
       formGoster.value = false;
     };
     return {
-      workStep,
+      workStepi,
       formGoster,
       handleSubmit,
     };

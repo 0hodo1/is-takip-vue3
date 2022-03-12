@@ -1,12 +1,11 @@
 import { ref } from "vue";
 import { firestoreRef } from "../firebase/config";
 
-const getDocument = (collection, id) => {
+const getDocument = (koleksiyon, id) => {
   let document = ref(null);
   let errorDocument = ref(null);
 
-  let documentRef = firestoreRef.collection(collection).doc(id);
-
+  let documentRef = firestoreRef.collection(koleksiyon).doc(id);
   documentRef.onSnapshot(
     (doc) => {
       if (doc.data) {

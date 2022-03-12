@@ -44,6 +44,7 @@ const routes = [
     name: "WorkDetail",
     component: WorkDetail,
     beforeEnter: authLogin,
+    props: true,
   },
 ];
 
