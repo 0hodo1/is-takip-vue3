@@ -4,7 +4,7 @@
   </div>
 
   <div v-if="work" class="work-details">
-    <div class="card text-center">
+    <div class="card text-center mt-4">
       <div class="card-header">{{ work.title }}</div>
       <div class="card-body">
         <h5 class="card-title">{{ work.username }}</h5>

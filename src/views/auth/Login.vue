@@ -1,9 +1,27 @@
 <template>
+  <h3>Giriş Sayfası</h3>
   <form @submit.prevent="handleSubmit">
-    <h3>Giriş Sayfası</h3>
-    <input type="email" placeholder="Email" v-model="email" />
-    <input type="password" placeholder="Parola giriniz..." v-model="password" />
-    <button>Giriş</button>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email adresiniz</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        v-model="email"
+      />
+      <div id="emailHelp" class="form-text">Boş bırakmayınız</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Parolanız</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        v-model="password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
     <div v-if="error" class="error">{{ error }}</div>
   </form>
 </template>

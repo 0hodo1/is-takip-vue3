@@ -1,14 +1,38 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <h3>Hodo İş Takip Kayıt Sayfası</h3>
-    <input
-      type="text"
-      placeholder="Kullanıcı adı giriniz..."
-      v-model="username"
-    />
-    <input type="email" placeholder="Email giriniz..." v-model="email" />
-    <input type="password" placeholder="Parola giriniz..." v-model="password" />
-    <button>Kayıt Ol</button>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label"
+        >Kullanıcı adınız</label
+      >
+      <input
+        type="text"
+        class="form-control"
+        aria-describedby="emailHelp"
+        v-model="username"
+      />
+      <div id="emailHelp" class="form-text">Boş bırakmayınız</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email adresiniz</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        v-model="email"
+      />
+      <div id="emailHelp" class="form-text">Boş bırakmayınız</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Parolanız</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        v-model="password"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
     <div v-if="error" class="error">{{ error }}</div>
   </form>
 </template>

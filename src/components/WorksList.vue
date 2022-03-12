@@ -1,6 +1,6 @@
 <template>
   <div v-for="work in works" :key="work.id">
-    <div class="card mb-4">
+    <div class="card my-4">
       <div class="card-header">Oluşturan: {{ work.username }}</div>
       <div class="card-body">
         <h5 class="card-title">{{ work.title }}</h5>

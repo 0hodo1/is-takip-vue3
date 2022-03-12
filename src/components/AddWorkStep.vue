@@ -1,12 +1,20 @@
 <template>
-  <div class="add-work">
-    <button v-if="!formGoster" @click="formGoster = true">İş Adımı Ekle</button>
-    <form v-if="formGoster" @sumbmit.prevent="handleSubmit">
-      <h4>Yeni İş Adımı</h4>
-      <input type="text" placeholder="İş Adımı" required v-model="workStepi" />
-      <button>Ekle</button>
-    </form>
-  </div>
+  <button v-if="!formGoster" @click="formGoster = true" class="btn btn-warning">
+    İş Adımı Ekle
+  </button>
+  <form v-if="formGoster" @sumbmit.prevent="handleSubmit">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">İş Adımı</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Eklemek istediğiniz iş adımını giriniz"
+        required
+        v-model="workStepi"
+      />
+    </div>
+    <button type="submit" class="btn btn-success">Ekle</button>
+  </form>
 </template>
 
 <script>
