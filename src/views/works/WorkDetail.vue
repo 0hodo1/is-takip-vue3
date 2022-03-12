@@ -2,15 +2,25 @@
   <div v-if="errorDocument" class="error">
     {{ errorDocument }}
   </div>
+
   <div v-if="work" class="work-details">
-    <div class="work-info">
-      <div class="image">
-        <img :src="work.imageUrl" />
+    <div class="card text-center">
+      <div class="card-header">{{ work.title }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ work.username }}</h5>
+        <p class="card-text">
+          {{ work.description }}
+        </p>
+        <button class="btn btn-danger" v-if="userWork" @click="handleDelete">
+          İşi sil
+        </button>
       </div>
-      <h2>{{ work.title }}</h2>
-      <p class="username">{{ work.username }}</p>
-      <p class="description">{{ work.description }}</p>
+      <div class="card-footer text-muted">2 days ago</div>
     </div>
+  </div>
+
+  <div v-if="work" class="work-details">
+    <div class="work-info"></div>
     <div class="work-list">
       <h2>İş Adımları</h2>
       <AddWorkStep v-if="userWork" :work="work" />
@@ -27,7 +37,6 @@
           </div>
         </div>
       </div>
-      <button v-if="userWork" @click="handleDelete">İşi sil</button>
     </div>
   </div>
 </template>

@@ -1,13 +1,45 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <h4>İş Oluştur</h4>
-    <input type="text" placeholder="İş Başlığı" v-model="title" />
-    <textarea placeholder="İş açıklama" v-model="description"></textarea>
-    <label>İş tanıtıcı resim</label>
-    <input type="file" @change="handleChange" />
-    <input type="datetime-local" v-model="startDate" />
-    <div class="error">{{ fileError }}</div>
-    <button>İş Oluştur</button>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Başlık:</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="İş Başlığı"
+        v-model="title"
+      />
+      <div id="emailHelp" class="form-text">
+        İş tanımını bu bölümde yapınız.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Detaylar</label
+      >
+
+      <textarea
+        placeholder="İş açıklama"
+        v-model="description"
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Rsim seçiniz</label>
+      <input
+        class="form-control"
+        type="file"
+        id="formFile"
+        @change="handleChange"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Tarih:</label>
+      <input type="datetime-local" class="form-control" v-model="startDate" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">İş oluştur</button>
   </form>
 </template>
 

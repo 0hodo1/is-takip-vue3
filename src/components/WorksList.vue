@@ -1,19 +1,20 @@
 <template>
   <div v-for="work in works" :key="work.id">
-    <router-link :to="{ name: 'WorkDetail', params: { id: work.id } }">
-      <div class="single">
-        <div class="thumbnail">
-          <img :src="work.imageUrl" />
-        </div>
-        <div class="info">
-          <h3>{{ work.title }}</h3>
-          <p>Oluşturan: {{ work.username }}</p>
-        </div>
-        <div class="work-number">
-          <p>{{ work.workSteps.length }} tane iş adımı bulunuyor</p>
-        </div>
+    <div class="card mb-4">
+      <div class="card-header">Oluşturan: {{ work.username }}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{ work.title }}</h5>
+        <p class="card-text">
+          {{ work.workSteps.length }} tane iş adımı bulunuyor
+        </p>
+        <router-link
+          class="btn btn-primary"
+          :to="{ name: 'WorkDetail', params: { id: work.id } }"
+        >
+          Detayları göster...
+        </router-link>
       </div>
-    </router-link>
+    </div>
   </div>
 </template>
 
