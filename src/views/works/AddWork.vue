@@ -17,9 +17,11 @@ import useStorage from "@/composables/useStorage";
 import useCollection from "@/composables/useCollection";
 import getUser from "@/composables/getUser";
 import { date } from "@/firebase/config";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
+    const router = useRouter();
     const title = ref("");
     const description = ref("");
     const startDate = ref("");
@@ -38,7 +40,7 @@ export default {
       if (file.value) {
         await uploadFile(file.value);
         // console.log("url: ", url.value);
-        await addDocument({
+        const res = await addDocument({
           title: title.value,
           description: description.value,
           userId: user.value.uid,
@@ -51,6 +53,7 @@ export default {
         });
         if (!errorCollection.value) {
           console.log("İş eklendi");
+          router.push({ name: "WorkDetail", params: { id: res.id } });
         }
       }
     };

@@ -7,7 +7,8 @@ const useCollection = (collection) => {
   const addDocument = async (document) => {
     errorCollection.value = null;
     try {
-      await firestoreRef.collection(collection).add(document);
+      const res = await firestoreRef.collection(collection).add(document);
+      return res;
     } catch (error) {
       errorCollection.value = "Ekleme işlemi sırasında hata oluştu";
     }

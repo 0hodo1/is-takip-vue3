@@ -20,7 +20,17 @@ const useStorage = () => {
       error.value = "Resim yüklemede hata oluştu";
     }
   };
-  return { uploadFile, url, filePath, error };
+
+  const deleteImage = async (path) => {
+    const storage = storageRef.ref(path);
+    try {
+      await storage.delete();
+    } catch (error) {
+      error.value = error;
+    }
+  };
+
+  return { uploadFile, url, filePath, error, deleteImage };
 };
 
 export default useStorage;
