@@ -2,10 +2,10 @@
   <div v-if="errorDocument" class="error">
     {{ errorDocument }}
   </div>
-  <div class="row mt-4">
-    <div v-if="work" class="work-details col-9">
+  <div class="row">
+    <div v-if="work" class="work-details col-sm-12 col-md-9 mt-4">
       <div class="card text-center">
-        <div class="card-header">{{ work.username }}</div>
+        <div class="card-header fs-5">{{ work.username }}</div>
         <div class="card-body">
           <h5 class="card-title">{{ work.title }}</h5>
           <p class="card-text">
@@ -19,11 +19,13 @@
             İşi sil
           </button>
         </div>
-        <div class="card-footer text-muted">2 days ago</div>
+        <div class="card-footer text-muted">
+          {{ Date(work.createdAt) }}
+        </div>
       </div>
     </div>
 
-    <div v-if="work" class="work-details col-3">
+    <div v-if="work" class="work-details col-sm-6 col-xl-3 mt-4">
       <div class="card" style="width: 18rem">
         <div class="card-header">
           <div class="row">
@@ -34,7 +36,7 @@
         <ul class="list-group list-group-flush">
           <div v-for="workStep in work.workSteps" :key="workStep.id">
             <li class="list-group-item">
-              {{ workStep }}
+              {{ workStep.workStepi }}
               <button
                 v-if="userWork"
                 @click="handleClick(workStep.id)"

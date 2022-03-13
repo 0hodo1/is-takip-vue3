@@ -1,12 +1,12 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img
           src="https://www.clipartmax.com/png/full/481-4813176_h-letter-transparent-background-gold-letter-h.png"
           alt=""
           width="30"
-          height="24"
+          height="30"
         />
       </a>
       <router-link :to="{ name: 'home' }" class="navbar-brand"

@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Başlık:</label>
+    <div class="my-5">
+      <label for="exampleInputEmail1" class="form-label fs-3">Başlık:</label>
       <input
         type="text"
         class="form-control"
@@ -13,9 +13,9 @@
       </div>
     </div>
     <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label"
-        >Detaylar</label
-      >
+      <label for="exampleFormControlTextarea1" class="form-label fs-3">
+        Detaylar
+      </label>
 
       <textarea
         placeholder="İş açıklama"
@@ -26,7 +26,7 @@
       ></textarea>
     </div>
     <div class="mb-3">
-      <label for="formFile" class="form-label">Rsim seçiniz</label>
+      <label for="formFile" class="form-label fs-3">Resim seçiniz</label>
       <input
         class="form-control"
         type="file"
@@ -35,11 +35,11 @@
       />
     </div>
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Tarih:</label>
+      <label for="exampleInputEmail1" class="form-label fs-3">Tarih:</label>
       <input type="datetime-local" class="form-control" v-model="startDate" />
     </div>
 
-    <button type="submit" class="btn btn-primary">İş oluştur</button>
+    <button type="submit" class="btn btn-primary btn-lg">İş oluştur</button>
   </form>
 </template>
 

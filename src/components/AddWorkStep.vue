@@ -6,7 +6,7 @@
   >
     İş Adımı Ekle
   </button>
-  <form v-if="formGoster" @sumbmit.prevent="handleSubmit">
+  <form v-if="formGoster" @submit.prevent="handleSubmit">
     <div class="mb-3">
       <input
         type="text"
@@ -16,7 +16,7 @@
         v-model="workStepi"
       />
     </div>
-    <button type="submit" class="btn btn-success float-end">Ekle</button>
+    <button class="btn btn-success float-end">Ekle</button>
   </form>
 </template>
 
