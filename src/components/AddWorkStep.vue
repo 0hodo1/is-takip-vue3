@@ -1,19 +1,22 @@
 <template>
-  <button v-if="!formGoster" @click="formGoster = true" class="btn btn-warning">
+  <button
+    v-if="!formGoster"
+    @click="formGoster = true"
+    class="btn btn-warning float-end"
+  >
     İş Adımı Ekle
   </button>
   <form v-if="formGoster" @sumbmit.prevent="handleSubmit">
     <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">İş Adımı</label>
       <input
         type="text"
         class="form-control"
-        placeholder="Eklemek istediğiniz iş adımını giriniz"
+        placeholder="İş adımını giriniz"
         required
         v-model="workStepi"
       />
     </div>
-    <button type="submit" class="btn btn-success">Ekle</button>
+    <button type="submit" class="btn btn-success float-end">Ekle</button>
   </form>
 </template>
 

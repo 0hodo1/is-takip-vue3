@@ -2,40 +2,53 @@
   <div v-if="errorDocument" class="error">
     {{ errorDocument }}
   </div>
-
-  <div v-if="work" class="work-details">
-    <div class="card text-center mt-4">
-      <div class="card-header">{{ work.title }}</div>
-      <div class="card-body">
-        <h5 class="card-title">{{ work.username }}</h5>
-        <p class="card-text">
-          {{ work.description }}
-        </p>
-        <button class="btn btn-danger" v-if="userWork" @click="handleDelete">
-          İşi sil
-        </button>
+  <div class="row mt-4">
+    <div v-if="work" class="work-details col-9">
+      <div class="card text-center">
+        <div class="card-header">{{ work.username }}</div>
+        <div class="card-body">
+          <h5 class="card-title">{{ work.title }}</h5>
+          <p class="card-text">
+            {{ work.description }}
+          </p>
+          <button
+            class="btn btn-danger btn-lg"
+            v-if="userWork"
+            @click="handleDelete"
+          >
+            İşi sil
+          </button>
+        </div>
+        <div class="card-footer text-muted">2 days ago</div>
       </div>
-      <div class="card-footer text-muted">2 days ago</div>
     </div>
-  </div>
 
-  <div v-if="work" class="work-details">
-    <div class="work-info"></div>
-    <div class="work-list">
-      <h2>İş Adımları</h2>
-      <AddWorkStep v-if="userWork" :work="work" />
-      <div class="work-list">
-        <div v-if="!work.workSteps.length">Henüz iş eklenmedi</div>
-        <div v-for="workStep in work.workSteps" :key="workStep.id">
-          <div class="single-work">
-            <div class="details">
-              <h3>{{ workStep.workStepi }}</h3>
-              <button v-if="userWork" @click="handleClick(workStep.id)">
-                Sil
-              </button>
-            </div>
+    <div v-if="work" class="work-details col-3">
+      <div class="card" style="width: 18rem">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-5 fs-5">İş Adımları</div>
+            <div class="col-7"></div>
           </div>
         </div>
+        <ul class="list-group list-group-flush">
+          <div v-for="workStep in work.workSteps" :key="workStep.id">
+            <li class="list-group-item">
+              {{ workStep }}
+              <button
+                v-if="userWork"
+                @click="handleClick(workStep.id)"
+                class="btn btn-sm btn-danger float-end"
+              >
+                Adımı Sil
+              </button>
+            </li>
+          </div>
+          <AddWorkStep v-if="userWork" :work="work" />
+          <li class="list-group-item" v-if="!work.workSteps.length">
+            Henüz iş eklenmedi
+          </li>
+        </ul>
       </div>
     </div>
   </div>

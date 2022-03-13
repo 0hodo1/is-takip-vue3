@@ -3,14 +3,14 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img
-          src="https://e7.pngegg.com/pngimages/985/67/png-clipart-blue-logo-circle-logo-symbol-font-templates-blue-angle.png"
+          src="https://www.clipartmax.com/png/full/481-4813176_h-letter-transparent-background-gold-letter-h.png"
           alt=""
           width="30"
           height="24"
         />
       </a>
-      <a class="navbar-brand" href="#"
-        ><router-link :to="{ name: 'home' }">Hodo İş Takip</router-link></a
+      <router-link :to="{ name: 'home' }" class="navbar-brand"
+        >Hodo İş Takip</router-link
       >
       <button
         class="navbar-toggler"
@@ -25,7 +25,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="form-control" />
-        <form class="d-flex me-2">
+        <form class="d-flex me-4">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a
